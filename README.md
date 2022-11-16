@@ -14,12 +14,12 @@ As the direction of edge is considered, the de-interlaced image has a better qua
   2.	save data state，一次從 grayscale image memory 讀取32筆資料，並直接將資料依序存在 Result image memory 的基數行
   3.	如果 grayscale image memory 還沒存完，回到 step1 繼續做，否則進入 read data state
   4.	從第32格開始計算 (只計算偶數行)
-    	- 如果是最左邊欄位，得到 b、c、e、f 的值後，將ready設為1
+    	- 如果是最左邊欄位，得到 b、c、e、f 的值後，將 ready 設為1
     	- 從第二欄開始，a=b, d=e, b=c, e=f
-    	- 接著取得c和f的值後ready設為1
-  5.	如果ready=1，進入output data state
-  6.	如果是最左邊或最右邊的欄位，data_wr = (b+e)/2，否則，計算|a-f|、|b-e|、|c-d|的最小值
-    	- 若|a-f|最小，則data_wr=(a+f)/2
-    	- 若|b-e|最小，則data_wr=(b+e)/2
-    	- 否則data_wr=(c+d)/2
+    	- 接著取得c和f的值後 ready 設為1
+  5.	如果 ready=1，進入 output data state
+  6.	如果是最左邊或最右邊的欄位，data_wr = (b+e)/2，否則，計算 |a-f|、|b-e|、|c-d| 的最小值
+    	- 若 |a-f| 最小，則 data_wr=(a+f)/2
+    	- 若 |b-e| 最小，則 data_wr=(b+e)/2
+    	- 否則 data_wr=(c+d)/2
   7.	如果偶數行皆計算完，done=1，否則回到step4繼續做
