@@ -19,7 +19,7 @@ As the direction of edge is considered, the de-interlaced image has a better qua
     	- 接著取得c和f的值後ready設為1
   5.	如果ready=1，進入output data state
   6.	如果是最左邊或最右邊的欄位，data_wr = (b+e)/2，否則，計算|a-f|、|b-e|、|c-d|的最小值
-      - 若|a-f|最小，則data_wr=(a+f)/2
+    	- 若|a-f|最小，則data_wr=(a+f)/2
       - 若|b-e|最小，則data_wr=(b+e)/2
       - 否則data_wr=(c+d)/2
   7.	如果偶數行皆計算完，done=1，否則回到step4繼續做
